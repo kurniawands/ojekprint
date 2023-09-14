@@ -12,7 +12,7 @@ const NavBar = () => {
 
       <div className="flex flex-row justify-between gap-10 text-3xl font-normal">
         <Link href="/about">Tentang Kami</Link>
-        <Link href="/product">Produk</Link>
+        <Link href="/shop">Toko</Link>
         <Link href="/service">Layanan</Link>
       </div>
 
