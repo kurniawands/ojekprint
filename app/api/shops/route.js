@@ -1,6 +1,8 @@
 const mysql = require("mysql2/promise");
 
-export const GET = async (request) => {
+export const POST = async (request) => {
+  const { limit } = await request.json();
+
   try {
     const conn = await mysql.createConnection({
       host: "localhost",
@@ -9,7 +11,12 @@ export const GET = async (request) => {
       database: process.env.MYSQL_DATABASE,
     });
 
-    const [results, fields] = await conn.query("SELECT * FROM `shop` LIMIT 10");
+    const [results, fields] = await conn.execute(
+      "SELECT * FROM `shop` LIMIT ?",
+      [limit]
+    );
+
+    conn.end();
 
     return new Response(JSON.stringify(results), { status: 200 });
   } catch (error) {
