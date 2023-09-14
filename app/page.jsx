@@ -31,7 +31,7 @@ export default function Home() {
         </h1>
         <div className="flex flex-col xl:flex-row items-center xl:items-start">
           <div className="basis-2/5 grow shrink mx-5">
-            <Image src="/about.svg" width={700} height={500} alt="about" />
+            <Image src="/about.png" width={700} height={500} alt="about" />
           </div>
           <div className="flex flex-col basis-3/5 px-5">
             <h3 className="font-bold text-green-500 text-3xl mb-4">
