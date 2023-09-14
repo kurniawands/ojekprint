@@ -13,6 +13,8 @@ export const GET = async (request) => {
       "SELECT * FROM `orders` LIMIT 10"
     );
 
+    conn.end();
+
     return new Response(JSON.stringify(results), { status: 200 });
   } catch (error) {
     return new Response(error, {
