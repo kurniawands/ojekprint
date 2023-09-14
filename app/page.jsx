@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ShopCard from "@/components/ShopCard";
+import ShopCardList from "@/components/ShopCardList";
 
 export default function Home() {
   return (
@@ -56,10 +57,10 @@ export default function Home() {
 
       <div className="px-[7%] py-16">
         <h1 className="font-bold text-center text-6xl mb-12">
-          <span className="text-green-500">Layanan</span> Print
+          <span className="text-green-500">Layanan</span> Percetakan
         </h1>
         <div className="w-full bg-zinc-800 p-8 rounded-3xl">
-          <ShopCard />
+          <ShopCardList />
         </div>
       </div>
     </section>
