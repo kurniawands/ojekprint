@@ -1,7 +1,7 @@
 const mysql = require("mysql2/promise");
 
 export const POST = async (request) => {
-  const { providerid } = await request.json();
+  const { limit } = await request.json();
 
   try {
     const conn = await mysql.createConnection({
@@ -12,8 +12,8 @@ export const POST = async (request) => {
     });
 
     const [results, fields] = await conn.execute(
-      "SELECT * FROM `product` WHERE `providerid` = ?",
-      [providerid]
+      "SELECT * FROM `provider` LIMIT ?",
+      [limit]
     );
 
     conn.end();

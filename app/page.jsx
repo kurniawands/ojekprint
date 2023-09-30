@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import ShopCard from "@/components/ShopCard";
-import ShopCardList from "@/components/ShopCardList";
+import HomeShop from "@/components/HomeShop";
 
 export default function Home() {
   return (
@@ -60,7 +59,7 @@ export default function Home() {
           <span className="text-green-500">Layanan</span> Percetakan
         </h1>
         <div className="w-full bg-zinc-800 p-8 rounded-3xl">
-          <ShopCardList />
+          <HomeShop />
         </div>
       </div>
     </section>

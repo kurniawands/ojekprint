@@ -1,24 +1,25 @@
-const mysql = require("mysql2/promise");
+import mongoose from "mongoose";
 
 let isConnected = false;
 
 export const connectToDB = async () => {
+  mongoose.set("strictQuery", true);
+
   if (isConnected) {
-    console.log("MySQL is already connected");
+    console.log("MongoDB is already connected");
     return;
   }
 
   try {
-    const conn = await mysql.createConnection({
-      host: "localhost",
-      user: process.env.MYSQL_USER,
-      password: process.env.MYSQL_PASSWORD,
-      database: process.env.MYSQL_DATABASE,
+    await mongoose.connect(process.env.MONGODB_URI, {
+      dbName: "ojekprint",
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     });
 
     isConnected = true;
 
-    console.log("MySQL connected");
+    console.log("MongoDB connected");
   } catch (error) {
     console.log(error);
   }

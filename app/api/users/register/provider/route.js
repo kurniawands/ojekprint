@@ -1,7 +1,8 @@
 const mysql = require("mysql2/promise");
 
 export const POST = async (request) => {
-  const { limit } = await request.json();
+  const { username, name, password, phone, address, email } =
+    await request.json();
 
   try {
     const conn = await mysql.createConnection({
@@ -12,8 +13,8 @@ export const POST = async (request) => {
     });
 
     const [results, fields] = await conn.execute(
-      "SELECT * FROM `shop` LIMIT ?",
-      [limit]
+      "INSERT INTO `provider` (`providerusername`, `providername`, `password`, `phone`, `address`, `email`) VALUES (?, ?, ?, ?, ?, ?)",
+      [username, name, password, phone, address, email]
     );
 
     conn.end();
