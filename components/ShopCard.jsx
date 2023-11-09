@@ -13,7 +13,7 @@ const ShopCardList = () => {
       const response = await fetch("/api/provider", {
         method: "POST",
         body: JSON.stringify({
-          limit: "12",
+          limit: "100",
         }),
       });
       const data = await response.json();

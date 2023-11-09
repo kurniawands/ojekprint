@@ -14,7 +14,7 @@ const FormPenjual = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/users/register", {
+      const response = await fetch("/api/users/register/provider", {
         method: "POST",
         body: JSON.stringify({
           username: providerUsername,
