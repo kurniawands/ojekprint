@@ -18,7 +18,21 @@ export const POST = async (request) => {
 
     conn.end();
 
-    return new Response(JSON.stringify(results), { status: 200 });
+    const groupedData = new Map();
+
+    results.forEach((item) => {
+      groupedData.set(item.serviceid, {
+        serviceid: item.serviceid,
+        providerid: item.providerid,
+        name: item.name,
+        price: item.price,
+        quantity: 0,
+      });
+    });
+
+    const restructuredData = Array.from(groupedData.values());
+
+    return new Response(JSON.stringify(restructuredData), { status: 200 });
   } catch (error) {
     return new Response(error, {
       status: 500,
