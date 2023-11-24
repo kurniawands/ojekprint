@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { AiOutlineShoppingCart, AiFillBell } from "react-icons/ai";
 
 const NavBar = () => {
   const [session, setSession] = useState(true);
@@ -23,7 +24,11 @@ const NavBar = () => {
         {session ? (
           <div className="flex gap-3 md:gap-5 items-center">
             <Link href="/transaction">
-              <Image src="/cart.png" width={40} height={40} alt="cart" />
+              {/* <Image src="/cart.png" width={40} height={40} alt="cart" /> */}
+              <AiOutlineShoppingCart size={50} />
+            </Link>
+            <Link href="/">
+              <AiFillBell size={50} />
             </Link>
             <Link
               href="/"
