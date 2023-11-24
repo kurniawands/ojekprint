@@ -12,7 +12,7 @@ export const POST = async (request) => {
     });
 
     const [results, fields] = await conn.execute(
-      "SELECT `providername` FROM `provider` WHERE `providerid` = ?",
+      "SELECT `providername`, `address` FROM `provider` WHERE `providerid` = ?",
       [providerid]
     );
 
