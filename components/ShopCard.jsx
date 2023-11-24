@@ -10,7 +10,7 @@ const ShopCardList = () => {
 
   useEffect(() => {
     const fetchProvider = async () => {
-      const response = await fetch("/api/provider", {
+      const response = await fetch("/api/providerserv", {
         method: "POST",
         body: JSON.stringify({
           limit: "100",
@@ -45,7 +45,7 @@ const ShopCardList = () => {
             <p className="text-sm">{provider.address}</p>
           </div>
           <Image
-            src="/printing-profile.png"
+            src="/print-provider.png"
             width={360}
             height={270}
             alt="print profile"
@@ -54,7 +54,24 @@ const ShopCardList = () => {
           <div className="flex flex-col justify-center items-center">
             <p className="">Layanan Rekomendasi</p>
             {/* <ServiceBox id={provider.providerid} /> */}
-            <div className="flex flex-row w-full px-3 py-3 gap-1 bg-[#e7c89c]">
+            {provider.service.map((service) => (
+              <div
+                key={service.serviceid}
+                className="flex flex-row w-full px-3 py-3 gap-1 bg-[#e7c89c] border-y-2 border-white"
+              >
+                <Image
+                  src="/printer.png"
+                  width={49}
+                  height={49}
+                  alt="Printer"
+                />
+                <div className="flex flex-col w-full">
+                  <p className="text-left">{service.name}</p>
+                  <p className="text-right">{service.price}</p>
+                </div>
+              </div>
+            ))}
+            {/* <div className="flex flex-row w-full px-3 py-3 gap-1 bg-[#e7c89c]">
               <Image src="/printer.png" width={49} height={49} alt="Printer" />
               <div className="flex flex-col w-full">
                 <p className="text-left">Print Hitam Putih</p>
@@ -74,7 +91,7 @@ const ShopCardList = () => {
                 <p className="text-left">Print Hitam Putih</p>
                 <p className="text-right">Rp100000/Lembar</p>
               </div>
-            </div>
+            </div> */}
             <p className="py-1">Selengkapnya...</p>
           </div>
           <div className="flex justify-center mx-3 mb-3">
