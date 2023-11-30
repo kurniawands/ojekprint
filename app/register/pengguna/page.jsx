@@ -1,6 +1,13 @@
 import FormPengguna from "@/components/FormPengguna";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
-const Pengguna = () => {
+const Pengguna = async () => {
+  const session = await getServerSession();
+  if (session) {
+    redirect("/");
+  }
+
   return (
     <section className="flex flex-col justify-center w-full">
       <div className="relative bg-hero-image bg-no-repeat bg-cover bg-center flex flex-row justify-evenly items-center min-h-screen">
