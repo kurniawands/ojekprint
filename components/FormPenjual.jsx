@@ -14,7 +14,7 @@ const FormPenjual = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/users/register/provider", {
+      const response = await fetch("/api/auth/register/provider", {
         method: "POST",
         body: JSON.stringify({
           username: providerUsername,
@@ -51,7 +51,7 @@ const FormPenjual = () => {
               value={providerUsername}
               onChange={(e) => setProviderUsername(e.target.value)}
               className="w-full h-full px-3 rounded-2xl"
-            ></input>
+            />
           </div>
         </div>
         <div>
@@ -62,7 +62,7 @@ const FormPenjual = () => {
               value={providerName}
               onChange={(e) => setProviderName(e.target.value)}
               className="w-full h-full px-3 rounded-2xl"
-            ></input>
+            />
           </div>
         </div>
         <div>
@@ -73,7 +73,7 @@ const FormPenjual = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full h-full px-3 rounded-2xl"
-            ></input>
+            />
           </div>
         </div>
         <div>
@@ -84,7 +84,7 @@ const FormPenjual = () => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               className="w-full h-full px-3 rounded-2xl"
-            ></input>
+            />
           </div>
         </div>
         <div>
@@ -95,7 +95,7 @@ const FormPenjual = () => {
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               className="w-full h-full px-3 rounded-2xl"
-            ></input>
+            />
           </div>
         </div>
         <div>
@@ -106,7 +106,7 @@ const FormPenjual = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full h-full px-3 rounded-2xl"
-            ></input>
+            />
           </div>
         </div>
       </div>
