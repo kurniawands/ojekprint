@@ -4,9 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineShoppingCart, AiFillBell } from "react-icons/ai";
+import { signOut } from "next-auth/react";
 
-const NavBar = () => {
-  const [session, setSession] = useState(true);
+const NavBar = ({ session }) => {
+  // const [session, setSession] = useState(true);
+  // console.log(session);
 
   return (
     <nav className="flex justify-between items-center w-full px-[7%] h-20 bg-black">
@@ -21,7 +23,7 @@ const NavBar = () => {
       </div>
 
       <div className="flex flex-row gap-5">
-        {session ? (
+        {!!session && (
           <div className="flex gap-3 md:gap-5 items-center">
             <Link href="/transaction">
               {/* <Image src="/cart.png" width={40} height={40} alt="cart" /> */}
@@ -33,12 +35,16 @@ const NavBar = () => {
             <Link
               href="/"
               className="rounded-full border-4 border-green-600 bg-black py-1.5 px-5 text-green-600 transition-all hover:bg-white hover:text-green-600 text-center text-2xl flex items-center justify-center"
-              onClick={() => setSession(false)}
+              // onClick={() => setSession(false)}
+              onClick={() => {
+                signOut();
+              }}
             >
               Sign Out
             </Link>
           </div>
-        ) : (
+        )}
+        {!session && (
           <>
             {/* {providers &&
               Object.values(providers).map((provider) => ( */}
@@ -47,7 +53,7 @@ const NavBar = () => {
               // key={provider.name}
               // onClick={() => signIn(provider.id)}
               className="rounded-full border-4 border-green-600 bg-black py-1.5 px-5 text-green-600 transition-all hover:bg-white hover:text-green-600 text-center text-2xl flex items-center justify-center"
-              onClick={() => setSession(true)}
+              // onClick={() => setSession(true)}
             >
               Masuk
             </Link>
@@ -56,7 +62,7 @@ const NavBar = () => {
               // key={provider.name}
               // onClick={() => signIn(provider.id)}
               className="rounded-full bg-green-600 py-1.5 px-5 text-white transition-all hover:bg-white hover:text-green-600 text-center text-2xl flex items-center justify-center"
-              onClick={() => setSession(true)}
+              // onClick={() => setSession(true)}
             >
               Daftar
             </Link>
