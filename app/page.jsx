@@ -17,7 +17,7 @@ export default function Home() {
             </span>
           </h1>
           <Link
-            href="/"
+            href="/provider"
             className="inline-block rounded-full bg-green-500 mt-4 px-12 py-4 text-2xl"
           >
             Beli Sekarang
