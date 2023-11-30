@@ -54,7 +54,7 @@ const ProviderID = ({ params }) => {
         }),
       });
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setProviders(data);
     };
 
